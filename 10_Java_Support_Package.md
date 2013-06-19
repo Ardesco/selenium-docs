@@ -6,7 +6,7 @@ Working With Colours
 
 You will occasionally want to validate the colour of a thing as part of your tests, the problem is that colour definitions on the web are not constant.  Wouldn't it be nice if there was an easy way to compare a hex representation of a colour with an RGB representation of a colour, or an RGBA representation of a colour with a HSLA representation of a colour.
 
-Worry not there is a solution, the Colour class!
+Worry not there is a solution, the Color class!
 
 First of all you will need to import the colour class
 
@@ -14,7 +14,7 @@ First of all you will need to import the colour class
     import org.openqa.selenium.support.Color
 ```
 
-You can now start creating colour objects, every colour object will need to be created from a string representation of your colour, supported colour representations are:
+You can now start creating Color objects, every Color object will need to be created from a string representation of your colour, supported colour representations are:
 
 ```java
     private final Color HEX_COLOUR = Color.fromString("#2F7ED8");
@@ -47,7 +47,7 @@ You can now safely query an element to get its colour/background colour knowing 
     Color loginButtonBackgroundColour = driver.findElement(By.id("login")).getCssValue("background-color");
 ```
 
-You can then directly compare colour objects:
+You can then directly compare Color objects:
 
 ```java
     assert loginButtonBackgroundColour.equals(HOTPINK);
@@ -63,7 +63,7 @@ Or you can convert the colour into one of the following formats and perform a st
 
 Colours are no longer a problem
 
-Working With <select> Elements
+Working With &lt;select&gt; Elements
 --------------------
 
 Select elements can require quite a bit of boiler plate code to automate, to reduce this and make your tests cleaner there is a Select class in the Selenium support package.  To use it you will need the following import:
@@ -72,14 +72,14 @@ Select elements can require quite a bit of boiler plate code to automate, to red
     import org.openqa.selenium.support.ui.Select;
 ```
 
-You are then able to create a Select object using a WebElement that references a <select> element.
+You are then able to create a Select object using a WebElement that references a &lt;select&gt; element.
 
 ```java
     WebElement selectElement = driver.findElement(By.id("selectElementID"));
     Select selectObject = new Select(selectElement);
 ```
 
-The select object will now give you a series of commands that allow you to interact with a <select> element.  First of all you have some options to select various options from the <select> element.  Here is an example <select> element:
+The select object will now give you a series of commands that allow you to interact with a &lt;select&gt; element.  First of all you have some options to select various options from the &lt;select&gt; element.  Here is an example &lt;select&gt; element:
 
 ```html
     <!-- The second value will be selected initially -->
@@ -90,10 +90,10 @@ The select object will now give you a series of commands that allow you to inter
     </select>
 ```
 
-To select the first option from the above <select> element you now have three options:
+To select the first option from the above &lt;select&gt; element you now have three options:
 
 ```java
-    //Select an <option> based upon the <select> elements internal index
+    //Select an <option> based upon the &lt;select&gt; elements internal index
     selectObject.selectByIndex(1);
 
     //Select an <option> based upon its value attribute
@@ -113,7 +113,7 @@ You can then check which options are selected by using:
     WebElement firstSelectedOption = selectObject.getFirstSelectedOption();
 ```
 
-Or you may just be interested in what <option> elements the <select> element contains:
+Or you may just be interested in what <option> elements the &lt;select&gt; element contains:
 
 ```java
     //Return a WebElement<List> of options that the <select> element contains
@@ -123,7 +123,7 @@ Or you may just be interested in what <option> elements the <select> element con
 If you then want to deselect any elements you now have four options
 
 ```java
-    //Deselect an <option> based upon the <select> elements internal index
+    //Deselect an <option> based upon the &lt;select&gt; elements internal index
     selectObject.deselectByIndex(1);
 
     //Deselect an <option> based upon its value attribute
@@ -135,7 +135,7 @@ If you then want to deselect any elements you now have four options
     //Deselect all selected <option> elements
     selectObject.deselectAll();
 ```
-Finally, some <select> elements allow you to select more than one option, you can find out if your <select> element is one of these by using:
+Finally, some &lt;select&gt; elements allow you to select more than one option, you can find out if your &lt;select&gt; element is one of these by using:
 
 ```java
     Boolean doesThisAllowMultipleSelections = selectObject.isMultiple();
